@@ -9,7 +9,7 @@ Hệ thống Quản lý Dịch vụ Tìm kiếm Việc làm là một ứng dụ
 ### Nguyễn Thắng Minh Đạt
 
 - **Vai trò**: Nhóm trưởng
-- **MSSV**: [22697101]
+- **MSSV**: 22697101
 - **Đóng góp**:
   - Thiết kế kiến trúc hệ thống Client-Server
   - Phát triển RMI services và database integration
