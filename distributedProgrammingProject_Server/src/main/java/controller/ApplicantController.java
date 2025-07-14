@@ -1,14 +1,11 @@
 package controller;
 
-import dao.JobDAO;
 import dao.JobResumeDAO;
 import dao.RecruiterDAO;
 import dao.ResumeDAO;
 import entity.*;
 import entity.constant.Status;
-import jakarta.transaction.Transactional;
 import service.imp.JobResumeServiceImp;
-import service.imp.JobServiceImp;
 import service.imp.RecruiterServiceImp;
 import service.imp.ResumeServiceImp;
 import service.inteface.*;

@@ -1,11 +1,8 @@
 import com.formdev.flatlaf.FlatLightLaf;
 import controller.LoginController;
-import controller.MainController;
-import entity.Employee;
 import service.inteface.AllService;
 import view.frame.iframe.ILoginFrame;
 import view.frame.imp.LoginFrameImp;
-import view.frame.imp.MainFrameImp;
 
 
 import java.rmi.Naming;
