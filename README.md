@@ -4,7 +4,7 @@
 
 Hệ thống Quản lý Dịch vụ Tìm kiếm Việc làm là một ứng dụng phân tán được phát triển bằng Java, sử dụng kiến trúc Client-Server với RMI (Remote Method Invocation). Ứng dụng hỗ trợ quản lý toàn bộ quy trình tìm kiếm việc làm, từ quản lý nhân viên, ứng viên, nhà tuyển dụng đến quản lý tin tuyển dụng và hợp đồng.
 
-## �‍💻 Thành viên nhóm phát triển
+## 🖥️ Thành viên nhóm phát triển
 
 ### Nguyễn Thắng Minh Đạt
 
@@ -211,7 +211,7 @@ Hệ thống sử dụng các bảng chính:
 3. Xử lý hợp đồng và thanh toán
 4. Tạo báo cáo thống kê
 
-## �📞 Liên hệ
+## 📞 Liên hệ
 
 - 📧 Email: [nguyenthangdat84@gmail.com](mailto:nguyenthangdat84@gmail.com)
 - 🐙 GitHub: [github.com/MinhDat1312](https://github.com/MinhDat1312)
