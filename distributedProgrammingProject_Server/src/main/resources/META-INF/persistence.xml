@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="default">
+
+        <class>entity.Account</class>
+        <class>entity.Person</class>
+        <class>entity.Employee</class>
+        <class>entity.Recruiter</class>
+        <class>entity.Applicant</class>
+        <class>entity.Invoice</class>
+        <class>entity.ApplicationInvoice</class>
+        <class>entity.PostedInvoice</class>
+        <class>entity.Job</class>
+        <class>entity.Profession</class>
+        <class>entity.Resume</class>
+        <class>entity.embeddable.Address</class>
+        <class>entity.embeddable.Contact</class>
+        <class>entity.JobResume</class>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="org.mariadb.jdbc.Driver" />
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mariadb://LAPTOP-7ERSHT8P:3306/jobsearch" />
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.password"
+                      value="rootpassword" />
+            <property name="jakarta.persistence.jdbc.dialect"
+                      value="org.hibernate.dialect.MariaDBDialect" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,71 @@
+name: Send Email Notification
+
+on:
+  push:
+    branches:
+      - main  # Có thể thay đổi branch theo nhu cầu
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Để lấy được thông tin commit đầy đủ
+
+      - name: Get commit info
+        id: commit
+        run: |
+          echo "timestamp=$(git log -1 --format=%cd --date=format:'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+          echo "message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+          echo "author=$(git log -1 --format='%an <%ae>')" >> $GITHUB_ENV
+          echo "changed_files<<EOF" >> $GITHUB_ENV
+          git diff-tree --no-commit-id --name-status -r ${{ github.sha }} >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: New Push to Repository - ${{ github.repository }}
+          to: ${{ secrets.EMAIL_RECIPIENTS }}
+          from: GitHub Actions
+          body: |
+            New changes have been pushed to the repository.
+            
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref_name }}
+            
+            Commit Information:
+            - Time: ${{ env.timestamp }}
+            - Author: ${{ env.author }}
+            - Message: ${{ env.message }}
+            
+            Changed Files:
+            ${{ env.changed_files }}
+            
+            View changes: ${{ github.event.head_commit.url }}
+
+          # Bật HTML để định dạng email đẹp hơn
+          html_body: |
+            <h2>New changes have been pushed to the repository</h2>
+            
+            <p><strong>Repository:</strong> ${{ github.repository }}<br>
+            <strong>Branch:</strong> ${{ github.ref_name }}</p>
+            
+            <h3>Commit Information:</h3>
+            <ul>
+              <li><strong>Time:</strong> ${{ env.timestamp }}</li>
+              <li><strong>Author:</strong> ${{ env.author }}</li>
+              <li><strong>Message:</strong> ${{ env.message }}</li>
+            </ul>
+            
+            <h3>Changed Files:</h3>
+            <pre>${{ env.changed_files }}</pre>
+            
+            <p><a href="${{ github.event.head_commit.url }}">View changes on GitHub</a></p>
