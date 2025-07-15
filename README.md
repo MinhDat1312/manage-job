@@ -202,7 +202,6 @@ Hệ thống sử dụng các bảng chính:
 1. Tạo hồ sơ cá nhân
 2. Tìm kiếm và ứng tuyển công việc
 3. Theo dõi trạng thái hồ sơ
-4. Nhận thông báo qua email
 
 ### Cho Nhân viên:
 
